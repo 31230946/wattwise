@@ -1,0 +1,18 @@
+venv/
+node_modules/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+.env
+*.log
+wattwise_ml/data/LCL_2013*
+wattwise_ml/data/household_data.csv
+
+
+# kept local, not on GitHub
+setup_windows.bat
+setup_mac_linux.sh
+start_windows.bat
+start_mac_linux.sh
+render.yaml
