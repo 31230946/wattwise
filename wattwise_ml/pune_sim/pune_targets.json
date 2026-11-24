@@ -1,0 +1,48 @@
+{
+  "_label": "SIMULATED. Targets for turning real London (LCL) homes into simulated Pune homes.",
+  "_source": "Prayas (Energy Group), Pune: 'Insights from smart metering data' blog series, minute-level smart meters in about 115 homes, Jan 2018 - Jun 2020. Pages: energy.prayaspune.org/electricity-consumption-patterns, energy.prayaspune.org/electricity-load-patterns, energy.prayaspune.org/our-work/article-and-blog/temperature-and-electricity-consumption-patterns (accessed 27 Oct 2026). All watt values are Pune city sample averages per household unless marked.",
+
+  "published": {
+    "monthly_kwh_mean_pune_city": 156,
+    "monthly_kwh_low_basic_homes": 60,
+    "monthly_kwh_high_ac_or_water_heater_homes": 348,
+    "jan_morning_peak_w": 350,
+    "jan_morning_peak_hour": 9,
+    "nonsummer_evening_peak_w": [200, 250],
+    "nonsummer_evening_peak_hour": 21,
+    "nonsummer_night_w": [100, 150],
+    "may_night_peak_w": 350,
+    "may_night_peak_hour": [0, 1],
+    "may_night_peak_w_ac_homes": 600,
+    "ac_only_in_summer": "ACs used only in summer, mostly at night; usually not switched on in February and early March",
+    "weekend": "weekend daytime load higher than weekdays; night load not different"
+  },
+
+  "assumptions": {
+    "_note": "Our choices where Prayas gives no number. State these in the paper.",
+    "level_distribution": "lognormal, mean 156 kWh/month, sigma 0.448 (puts the 2.5th and 97.5th percentiles near 60 and 348)",
+    "ac_share": 0.30,
+    "ac_homes_drawn_from": "randomly from the top 60% of homes by usage level",
+    "summer_weight_anchors": [["01-15", 0], ["03-08", 0], ["03-22", 0.3], ["04-15", 0.7], ["05-15", 1.0], ["06-08", 0.4], ["06-30", 0], ["10-01", 0], ["10-15", 0.15], ["11-01", 0]],
+    "_summer_note": "date (MM-DD) -> summer weight, straight lines between. Zero until 8 March because Prayas says ACs are usually not switched on in February and early March. v1 used mid-month anchors, which leaked AC load into late February and failed check 8.",
+    "winter_morning_weight_by_month": {"1": 1, "2": 1, "3": 0.5, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "10": 0, "11": 0.5, "12": 1},
+    "other_months_morning_peak_w": 300,
+    "midday_w": "about 185-210 W outside summer (no published figure)",
+    "year": "LCL calendar 2013 is reused as a generic year; dates are not real Pune dates"
+  },
+
+  "profiles_w": {
+    "_note": "Hourly watts (hour 0 = midnight-1am) for an average home of each class. Built from the published numbers above, gaps filled by the assumptions.",
+    "nonsummer_winter": [140, 125, 120, 120, 125, 160, 230, 300, 340, 350, 300, 240, 210, 200, 190, 185, 185, 190, 200, 215, 230, 235, 210, 170],
+    "nonsummer_other":  [140, 125, 120, 120, 125, 150, 210, 260, 290, 300, 270, 230, 210, 200, 190, 185, 185, 190, 200, 215, 230, 235, 210, 170],
+    "summer_no_ac":     [245, 240, 225, 210, 195, 190, 220, 260, 270, 270, 240, 220, 220, 240, 260, 270, 270, 260, 250, 250, 255, 250, 240, 250],
+    "summer_ac":        [600, 600, 570, 520, 450, 350, 300, 320, 330, 320, 290, 280, 300, 340, 370, 380, 370, 340, 300, 290, 300, 340, 450, 560]
+  },
+
+  "checks": {
+    "_note": "Pass bars written BEFORE running the check.",
+    "monthly_mean_tol": 0.10,
+    "spread_tol": 0.15,
+    "watt_tol": 0.10
+  }
+}

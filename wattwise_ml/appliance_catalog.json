@@ -1,0 +1,28 @@
+{
+  "_note": "TYPICAL running watts for common Indian household appliances, used ONLY for the optional appliance breakdown (an estimate, scaled to the home's real meter total). 'watts' x 'duty' is used only when the user types the label wattage (rated_watts) or for appliances with no star data; 'duty' = fraction of switched-on time the appliance draws its rated power (compressors cycle). ACs, fridges and ceiling fans also have per-star values from BEE star labels (see '_star_sources' and 'star' blocks).",
+  "_star_sources": {
+    "bee_guide": "Bureau of Energy Efficiency, 'Know your Star Label & Make a Right Choice', Session 2 (beestarlabel.com/Content/Files/Session_2.pdf): inverter split AC ISEER bands (1-star 3.10-3.29, 2-star 3.30-3.49, 3-star 3.50-3.99, 4-star 4.00-4.49, 5-star 4.50+); frost-free fridge annual kWh for 250 L (1-star 400, 5-star 164); ceiling fan service value bands (1-star 3.2-3.4 ... 5-star 4.0+) and a 69 W non-star example. Label tables 2006-2019; newer BEE tables are stricter.",
+    "cse_dte_2025": "Down To Earth / CSE, 'What is the star rating label of an air-conditioner telling you?', 22 Sep 2025: label annual consumption assumes 1,600 cooling hours a year; category averages 3-star 1,008 kWh, 4-star 903 kWh, 5-star ~740 kWh.",
+    "consumer_affairs_fans": "Dept. of Consumer Affairs comparative test, ceiling fans (IS 374:2018): minimum air delivery for a 1,200 mm fan is 210 m3/min.",
+    "how_derived": "AC 1.5 ton: kWh per running hour = annual label kWh / 1,600 (3/4/5-star from CSE averages; 1/2-star = 3-star x ISEER ratio from BEE bands, using band mid-points 3.75/3.2 and 3.75/3.4). AC 1 ton = 1.5 ton x 2/3 (capacity ratio, our assumption). Fridge: 250 L frost-free, 1 and 5-star from BEE, 2-4 star straight-line between them, kWh per day = annual / 365. Fan: watts = 210 m3/min / service-value mid-point (5-star at 4.0). No star given: AC and fridge assume 3-star; fan uses the 70 W non-star typical value (BEE example: 69 W)."
+  },
+  "ac_1_5_ton":       {"label": "AC (1.5 ton)",          "watts": 1500, "duty": 0.70, "shiftable": false, "cuttable": true,
+                       "star": {"kind": "kwh_per_hour", "values": {"1": 0.74, "2": 0.70, "3": 0.63, "4": 0.56, "5": 0.46}, "default_star": 3, "label_hours_per_year": 1600}},
+  "ac_1_ton":         {"label": "AC (1 ton)",            "watts": 1000, "duty": 0.70, "shiftable": false, "cuttable": true,
+                       "star": {"kind": "kwh_per_hour", "values": {"1": 0.49, "2": 0.46, "3": 0.42, "4": 0.38, "5": 0.31}, "default_star": 3, "label_hours_per_year": 1600}},
+  "ceiling_fan":      {"label": "Ceiling fan",           "watts": 70,   "duty": 1.00, "shiftable": false, "cuttable": true,
+                       "star": {"kind": "watts", "values": {"1": 64, "2": 60, "3": 57, "4": 54, "5": 52}, "default_star": null}},
+  "ceiling_fan_bldc": {"label": "Ceiling fan (BLDC)",    "watts": 30,   "duty": 1.00, "shiftable": false, "cuttable": true},
+  "fridge":           {"label": "Refrigerator",          "watts": 150,  "duty": 0.35, "shiftable": false, "cuttable": false,
+                       "star": {"kind": "kwh_per_day", "values": {"1": 1.10, "2": 0.93, "3": 0.77, "4": 0.61, "5": 0.45}, "default_star": 3}},
+  "geyser":           {"label": "Geyser / water heater", "watts": 2000, "duty": 1.00, "shiftable": true,  "cuttable": true},
+  "washing_machine":  {"label": "Washing machine",       "watts": 500,  "duty": 1.00, "shiftable": true,  "cuttable": false},
+  "water_pump":       {"label": "Water pump / motor",    "watts": 750,  "duty": 1.00, "shiftable": true,  "cuttable": false},
+  "iron":             {"label": "Electric iron",         "watts": 1000, "duty": 0.60, "shiftable": true,  "cuttable": false},
+  "tv":               {"label": "Television",            "watts": 100,  "duty": 1.00, "shiftable": false, "cuttable": true},
+  "led_lights":       {"label": "LED lights (all)",      "watts": 60,   "duty": 1.00, "shiftable": false, "cuttable": true},
+  "microwave":        {"label": "Microwave",             "watts": 1200, "duty": 1.00, "shiftable": false, "cuttable": false},
+  "induction":        {"label": "Induction cooktop",     "watts": 1500, "duty": 0.80, "shiftable": false, "cuttable": false},
+  "computer":         {"label": "Laptop / desktop",      "watts": 100,  "duty": 1.00, "shiftable": false, "cuttable": true},
+  "other":            {"label": "Other",                 "watts": 100,  "duty": 1.00, "shiftable": false, "cuttable": false}
+}

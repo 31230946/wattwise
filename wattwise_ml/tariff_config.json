@@ -1,0 +1,22 @@
+{
+  "_source": "MERC MYT Order for MSEDCL, press note (March 2025), Annexure 3 (LT tariff FY 2026-27) and Section 12 (ToD slabs). Check the latest MSEDCL tariff booklet before quoting; later review orders (Case 75 of 2025) may have changed these.",
+  "_note": "Energy + wheeling charges only. Electricity duty and fuel adjustment charge (FAC) are NOT included, so the bill shown is an underestimate of the real printed bill.",
+  "financial_year": "FY 2026-27",
+  "category": "LT I(B) Residential (single phase)",
+  "fixed_charge_rs_per_month": 130,
+  "wheeling_charge_rs_per_kwh": 1.20,
+  "slabs": [
+    {"upto_units": 100,  "energy_rs_per_kwh": 4.32},
+    {"upto_units": 300,  "energy_rs_per_kwh": 9.40},
+    {"upto_units": 500,  "energy_rs_per_kwh": 12.51},
+    {"upto_units": null, "energy_rs_per_kwh": 13.97}
+  ],
+  "tod": {
+    "applies_to": "LT-Domestic consumers billed on a ToD / smart meter",
+    "solar_hours": [9, 17],
+    "solar_rebate_rs_per_kwh": 0.80,
+    "evening_peak_charge_rs_per_kwh": 0.0,
+    "_note": "Rebate is Rs 0.80/kWh in FY26 rising to Rs 1.00/kWh by FY30. No peak surcharge for residential (Note-3 of the ToD table)."
+  },
+  "days_per_billing_month": 30
+}

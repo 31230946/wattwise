@@ -1,0 +1,13 @@
+#,check,published (Prayas),simulated,pass,used to build sim
+1,Average monthly use (kWh),156,155,PASS,yes
+2,Spread: low / high homes (kWh/month)*,about 60 / about 348,60 / 329,PASS,yes
+3,January morning peak,"about 350 W, about 9 am","333 W, 9:00",PASS,yes
+4,"Evening peak, January","200-250 W, about 9 pm","230 W, 21:00",PASS,yes
+4,"Evening peak, August","200-250 W, about 9 pm","230 W, 21:00",PASS,yes
+5,"Night load 1-5 am, Jan",100-150 W,121 W,PASS,yes
+5,"Night load 1-5 am, Aug",100-150 W,120 W,PASS,yes
+5,"Night load 1-5 am, Nov",100-150 W,121 W,PASS,yes
+6,"May night peak, all homes","about 350 W, 12-1 am","332 W, 0:00",PASS,yes
+7,"May night peak, AC homes",about 600 W,"632 W, 0:00",PASS,yes
+8,"No AC in February (AC homes, night 1-5 am)",not raised: 100-150 W x home size,149 W vs Jan 148 W,PASS,yes
+9,Weekend daytime (10am-5pm) higher than weekdays,higher on weekends,weekend 235 W vs weekday 197 W,PASS,NO

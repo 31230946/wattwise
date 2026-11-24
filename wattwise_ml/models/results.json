@@ -1,0 +1,319 @@
+{
+  "data": {
+    "homes": 149,
+    "complete_days": 52471,
+    "daily_rows": 43751
+  },
+  "peer_stats": {
+    "1bhk": {
+      "peer_mean_kwh": 4.205,
+      "peer_median_kwh": 3.922,
+      "evening_share": 0.218,
+      "baseload_kw": 0.088,
+      "n_households": 38
+    },
+    "2bhk": {
+      "peer_mean_kwh": 7.38,
+      "peer_median_kwh": 7.124,
+      "evening_share": 0.23,
+      "baseload_kw": 0.145,
+      "n_households": 37
+    },
+    "3bhk": {
+      "peer_mean_kwh": 10.661,
+      "peer_median_kwh": 10.409,
+      "evening_share": 0.241,
+      "baseload_kw": 0.19,
+      "n_households": 37
+    },
+    "villa": {
+      "peer_mean_kwh": 18.649,
+      "peer_median_kwh": 16.368,
+      "evening_share": 0.237,
+      "baseload_kw": 0.304,
+      "n_households": 37
+    }
+  },
+  "forecast_cv": {
+    "daily_1": {
+      "LSTM alone": {
+        "rmse": 3.237,
+        "mae": 1.959,
+        "wape": 19.338,
+        "rmse_std": 0.691,
+        "mae_std": 0.352,
+        "wape_std": 0.693
+      },
+      "WattWise (XGBoost + LSTM)": {
+        "rmse": 3.183,
+        "mae": 1.887,
+        "wape": 18.645,
+        "rmse_std": 0.673,
+        "mae_std": 0.325,
+        "wape_std": 0.697
+      },
+      "XGBoost alone": {
+        "rmse": 3.231,
+        "mae": 1.874,
+        "wape": 18.528,
+        "rmse_std": 0.686,
+        "mae_std": 0.318,
+        "wape_std": 0.743
+      },
+      "mean of last 7 days": {
+        "rmse": 3.447,
+        "mae": 2.007,
+        "wape": 19.847,
+        "rmse_std": 0.687,
+        "mae_std": 0.334,
+        "wape_std": 0.974
+      },
+      "persistence (yesterday)": {
+        "rmse": 3.658,
+        "mae": 2.202,
+        "wape": 21.819,
+        "rmse_std": 0.693,
+        "mae_std": 0.334,
+        "wape_std": 0.871
+      }
+    },
+    "daily_7": {
+      "WattWise (XGBoost)": {
+        "rmse": 18.267,
+        "mae": 9.407,
+        "wape": 13.171,
+        "rmse_std": 5.844,
+        "mae_std": 2.436,
+        "wape_std": 2.04
+      },
+      "mean of all history": {
+        "rmse": 19.481,
+        "mae": 10.033,
+        "wape": 14.03,
+        "rmse_std": 6.113,
+        "mae_std": 2.688,
+        "wape_std": 2.237
+      },
+      "mean of last 7 days": {
+        "rmse": 18.687,
+        "mae": 9.675,
+        "wape": 13.544,
+        "rmse_std": 5.55,
+        "mae_std": 2.462,
+        "wape_std": 1.921
+      }
+    },
+    "daily_30": {
+      "WattWise (XGBoost)": {
+        "rmse": 84.18,
+        "mae": 43.382,
+        "wape": 14.316,
+        "rmse_std": 26.964,
+        "mae_std": 12.069,
+        "wape_std": 1.857
+      },
+      "mean of all history": {
+        "rmse": 89.752,
+        "mae": 45.187,
+        "wape": 14.925,
+        "rmse_std": 26.073,
+        "mae_std": 12.177,
+        "wape_std": 1.762
+      },
+      "mean of last 7 days": {
+        "rmse": 88.674,
+        "mae": 45.016,
+        "wape": 14.845,
+        "rmse_std": 28.204,
+        "mae_std": 12.585,
+        "wape_std": 1.872
+      }
+    }
+  },
+  "ranges_80pct": {
+    "daily_1": {
+      "by_history": {
+        "7": [
+          0.7163382218099748,
+          1.3173230476822533
+        ],
+        "14": [
+          0.7228943321173186,
+          1.324527263936388
+        ],
+        "21": [
+          0.7180783459072883,
+          1.3078751476817811
+        ],
+        "28": [
+          0.7207516871925626,
+          1.3038998272904396
+        ]
+      },
+      "overall": [
+        0.719767000816329,
+        1.3144242486259539
+      ],
+      "coverage_check": 0.800004571324084
+    },
+    "daily_7": {
+      "by_history": {
+        "7": [
+          0.8209794327067853,
+          1.2158558750264867
+        ],
+        "14": [
+          0.8369370412606884,
+          1.21513855661818
+        ],
+        "21": [
+          0.8271687622290532,
+          1.2076177557590286
+        ],
+        "28": [
+          0.8290456680097239,
+          1.193963436635019
+        ]
+      },
+      "overall": [
+        0.8288617207861328,
+        1.2075635359873746
+      ],
+      "coverage_check": 0.800004809889132
+    },
+    "daily_30": {
+      "by_history": {
+        "7": [
+          0.8187318007375429,
+          1.24147124733815
+        ],
+        "14": [
+          0.8352156468158647,
+          1.237680457013508
+        ],
+        "21": [
+          0.820606606429167,
+          1.2206082741896085
+        ],
+        "28": [
+          0.8250899412838246,
+          1.2101668655129139
+        ]
+      },
+      "overall": [
+        0.8239147585315866,
+        1.2276612535752918
+      ],
+      "coverage_check": 0.7999593295180548
+    }
+  },
+  "feature_importance_gain_pct": {
+    "daily_1": {
+      "lag_1": 11.0,
+      "lag_2": 3.6,
+      "lag_3": 4.4,
+      "lag_4": 4.7,
+      "lag_5": 7.8,
+      "lag_6": 5.0,
+      "lag_7": 3.1,
+      "mean_7": 6.9,
+      "std_7": 9.5,
+      "min_7": 6.2,
+      "max_7": 8.1,
+      "mean_14": 4.5,
+      "mean_28": 3.2,
+      "trend_7_vs_28": 4.4,
+      "history_days": 1.5,
+      "evening_share": 2.6,
+      "baseload_kw": 2.7,
+      "dow": 4.7,
+      "is_weekend": 6.2
+    },
+    "daily_7": {
+      "lag_1": 7.5,
+      "lag_2": 3.5,
+      "lag_3": 3.6,
+      "lag_4": 6.6,
+      "lag_5": 8.8,
+      "lag_6": 8.0,
+      "lag_7": 5.1,
+      "mean_7": 6.3,
+      "std_7": 5.9,
+      "min_7": 6.1,
+      "max_7": 5.2,
+      "mean_14": 3.8,
+      "mean_28": 4.8,
+      "trend_7_vs_28": 11.6,
+      "history_days": 2.0,
+      "evening_share": 4.3,
+      "baseload_kw": 4.6,
+      "dow": 2.2,
+      "is_weekend": 0.0
+    },
+    "daily_30": {
+      "lag_1": 1.5,
+      "lag_2": 3.4,
+      "lag_3": 4.5,
+      "lag_4": 9.0,
+      "lag_5": 10.4,
+      "lag_6": 6.0,
+      "lag_7": 2.3,
+      "mean_7": 7.6,
+      "std_7": 7.2,
+      "min_7": 3.1,
+      "max_7": 8.7,
+      "mean_14": 3.3,
+      "mean_28": 9.2,
+      "trend_7_vs_28": 14.5,
+      "history_days": 1.8,
+      "evening_share": 3.0,
+      "baseload_kw": 3.9,
+      "dow": 0.7,
+      "is_weekend": 0.0
+    }
+  },
+  "bandit_eval": {
+    "always_reduce": {
+      "mean": 0.2309,
+      "std": 0.0568,
+      "pct_of_oracle": 73.0098
+    },
+    "linucb": {
+      "mean": 0.3002,
+      "std": 0.0711,
+      "pct_of_oracle": 94.9484
+    },
+    "oracle": {
+      "mean": 0.3162,
+      "std": 0.0707,
+      "pct_of_oracle": 100.0
+    },
+    "random": {
+      "mean": 0.1154,
+      "std": 0.0296,
+      "pct_of_oracle": 36.4957
+    },
+    "rule_based": {
+      "mean": 0.2201,
+      "std": 0.042,
+      "pct_of_oracle": 69.6089
+    }
+  },
+  "bandit_action_mix": {
+    "reduce_load_general": 0.421,
+    "appliance_efficiency_tip": 0.361,
+    "no_action": 0.166,
+    "shift_evening_to_midday": 0.051
+  },
+  "bandit_sim": {
+    "take_up_of_gap": 0.3,
+    "max_saving_share": 0.1,
+    "noise_low": 0.5,
+    "noise_high": 1.5,
+    "no_action_reward_if_below_peers": 0.05,
+    "RS_NORM": 15.0,
+    "EV_NORM": 1.0,
+    "w_bill": 0.8,
+    "w_evening": 0.2
+  }
+}

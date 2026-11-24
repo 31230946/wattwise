@@ -1,0 +1,14 @@
+,,,rmse,rmse,mae,mae,wape,wape
+,,,mean,std,mean,std,mean,std
+path,horizon,model,,,,,,
+daily,1,LSTM alone,3.237,0.691,1.959,0.352,19.338,0.693
+daily,1,WattWise (XGBoost + LSTM),3.183,0.673,1.887,0.325,18.645,0.697
+daily,1,XGBoost alone,3.231,0.686,1.874,0.318,18.528,0.743
+daily,1,mean of last 7 days,3.447,0.687,2.007,0.334,19.847,0.974
+daily,1,persistence (yesterday),3.658,0.693,2.202,0.334,21.819,0.871
+daily,7,WattWise (XGBoost),18.267,5.844,9.407,2.436,13.171,2.04
+daily,7,mean of all history,19.481,6.113,10.033,2.688,14.03,2.237
+daily,7,mean of last 7 days,18.687,5.55,9.675,2.462,13.544,1.921
+daily,30,WattWise (XGBoost),84.18,26.964,43.382,12.069,14.316,1.857
+daily,30,mean of all history,89.752,26.073,45.187,12.177,14.925,1.762
+daily,30,mean of last 7 days,88.674,28.204,45.016,12.585,14.845,1.872

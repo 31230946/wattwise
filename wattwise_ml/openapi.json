@@ -1,0 +1,498 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "WattWise ML Service",
+    "description": "Household electricity forecast (ML), MSEDCL bill, carbon footprint and tips.",
+    "version": "3.3"
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "summary": "Health",
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/meta": {
+      "get": {
+        "summary": "Meta",
+        "operationId": "meta_meta_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bill": {
+      "post": {
+        "summary": "Bill",
+        "operationId": "bill_bill_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BillRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/forecast/daily": {
+      "post": {
+        "summary": "Forecast Daily",
+        "operationId": "forecast_daily_forecast_daily_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DailyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/homes-like-yours": {
+      "post": {
+        "summary": "Homes Like Yours",
+        "description": "Monthly bills -> closest SIMULATED Pune homes -> typical day + 12-month outlook (bill, carbon).\nShow `data_label` on screen.",
+        "operationId": "homes_like_yours_homes_like_yours_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LikeYoursRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Appliance": {
+        "properties": {
+          "type": {
+            "type": "string",
+            "title": "Type",
+            "description": "key from GET /meta -> appliance_types, e.g. 'ac_1_5_ton'"
+          },
+          "count": {
+            "type": "integer",
+            "maximum": 20.0,
+            "minimum": 1.0,
+            "title": "Count",
+            "default": 1
+          },
+          "hours_per_day": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 24.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Hours Per Day",
+            "description": "leave empty for all_day appliances"
+          },
+          "when": {
+            "type": "string",
+            "enum": [
+              "morning",
+              "day",
+              "evening",
+              "night",
+              "all_day"
+            ],
+            "title": "When",
+            "default": "evening"
+          },
+          "rated_watts": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 10000.0,
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Rated Watts",
+            "description": "from the appliance label, if known"
+          },
+          "star_rating": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 5.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Star Rating",
+            "description": "BEE star rating 1-5 (AC, fridge, ceiling fan; see /meta -> appliance_star_types)"
+          },
+          "label_kwh_per_year": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 5000.0,
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Label Kwh Per Year",
+            "description": "'kWh per year' printed on the BEE star label (AC, fridge)"
+          }
+        },
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "title": "Appliance"
+      },
+      "BillRequest": {
+        "properties": {
+          "monthly_units": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "maxItems": 12,
+            "minItems": 1,
+            "title": "Monthly Units",
+            "description": "units from recent bills, OLDEST first"
+          },
+          "has_smart_meter": {
+            "type": "boolean",
+            "title": "Has Smart Meter",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "monthly_units"
+        ],
+        "title": "BillRequest"
+      },
+      "DailyRequest": {
+        "properties": {
+          "home_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "1bhk",
+                  "2bhk",
+                  "3bhk",
+                  "villa"
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Home Type"
+          },
+          "has_smart_meter": {
+            "type": "boolean",
+            "title": "Has Smart Meter",
+            "default": false
+          },
+          "peer_mean_kwh": {
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Peer Mean Kwh",
+            "description": "avg daily kWh of similar homes; default from training data"
+          },
+          "evening_share": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Evening Share"
+          },
+          "baseload_kw": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 10.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Baseload Kw"
+          },
+          "appliances": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/Appliance"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Appliances"
+          },
+          "daily_kwh": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array",
+                "maxItems": 28,
+                "minItems": 7
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Daily Kwh",
+            "description": "kWh per day, OLDEST first, last = most recent day"
+          },
+          "daily_meter_readings": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array",
+                "maxItems": 29,
+                "minItems": 8
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Daily Meter Readings",
+            "description": "OR cumulative meter readings, one per day"
+          },
+          "last_reading_date": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Reading Date",
+            "description": "YYYY-MM-DD of the last value; default yesterday"
+          }
+        },
+        "type": "object",
+        "title": "DailyRequest"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "LikeYoursRequest": {
+        "properties": {
+          "monthly_units": {
+            "items": {
+              "type": "number"
+            },
+            "type": "array",
+            "maxItems": 12,
+            "minItems": 1,
+            "title": "Monthly Units",
+            "description": "units from recent bills, OLDEST first"
+          },
+          "last_bill_month": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 12.0,
+                "minimum": 1.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Last Bill Month",
+            "description": "calendar month (1-12) of the LAST bill; default last month"
+          },
+          "has_ac": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Has Ac",
+            "description": "does the home have an AC? leave empty if unknown"
+          },
+          "has_smart_meter": {
+            "type": "boolean",
+            "title": "Has Smart Meter",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "monthly_units"
+        ],
+        "title": "LikeYoursRequest"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "ctx": {
+            "type": "object",
+            "title": "Context"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

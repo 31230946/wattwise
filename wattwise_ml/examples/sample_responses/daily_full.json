@@ -1,0 +1,227 @@
+{
+  "path": "daily",
+  "input_summary": {
+    "days_used": 28,
+    "low_history": false,
+    "forecast_starts": "2026-10-13"
+  },
+  "forecast": {
+    "next_day": {
+      "kwh": 9.8,
+      "range_80pct": [
+        7.1,
+        12.8
+      ],
+      "kg_co2": 7.1,
+      "period": "2026-10-13"
+    },
+    "next_7_days": {
+      "kwh": 69.1,
+      "range_80pct": [
+        57.3,
+        82.5
+      ],
+      "kg_co2": 50.2,
+      "period": "2026-10-13 to 2026-10-19",
+      "kwh_per_day": 9.87
+    },
+    "next_30_days": {
+      "kwh": 298.1,
+      "range_80pct": [
+        245.9,
+        360.7
+      ],
+      "kg_co2": 216.7,
+      "period": "2026-10-13 to 2026-11-11",
+      "kwh_per_day": 9.94
+    }
+  },
+  "model_details": {
+    "next_day": {
+      "xgboost": 9.56,
+      "lstm": 10.1,
+      "w_xgb": 0.5,
+      "w_lstm": 0.5
+    },
+    "range_note": "In testing on homes the model never saw, 8 out of 10 real values fell inside range_80pct."
+  },
+  "bill": {
+    "monthly_units": 298.1,
+    "estimated_bill_rs": 2781.41,
+    "current_slab": "101-300 units",
+    "marginal_rate_rs_per_kwh": 10.6,
+    "units_above_lower_slab_line": 198.1,
+    "units_to_next_slab_line": 1.9,
+    "excludes": "electricity duty, fuel adjustment charge",
+    "tariff": "MSEDCL LT I(B) Residential (single phase), FY 2026-27",
+    "breakdown": {
+      "slabs": [
+        {
+          "slab": "1-100",
+          "units": 100.0,
+          "rate_rs": 4.32,
+          "energy_rs": 432.0
+        },
+        {
+          "slab": "101-300",
+          "units": 198.1,
+          "rate_rs": 9.4,
+          "energy_rs": 1861.74
+        }
+      ],
+      "wheeling_rs": 357.67,
+      "fixed_rs": 130,
+      "total_rs": 2781.41,
+      "excludes": "electricity duty, fuel adjustment charge"
+    },
+    "based_on": "next 30 days forecast"
+  },
+  "carbon": {
+    "kwh": 298.1,
+    "kg_co2": 216.7,
+    "period": "next 30 days forecast",
+    "factor_kg_per_kwh": 0.727,
+    "source": "CEA CO2 Baseline Database v20, 2023-24"
+  },
+  "expected_savings_if_tips_followed": {
+    "low": {
+      "pct": 4,
+      "units_per_month": 11.9,
+      "kg_co2_per_month": 8.7,
+      "rs_per_month": 126.38
+    },
+    "high": {
+      "pct": 7,
+      "units_per_month": 20.9,
+      "kg_co2_per_month": 15.2,
+      "rs_per_month": 221.16
+    },
+    "message": "Homes that follow energy tips typically use 4-7% less. For you that is about 9-15 kg CO2 and Rs 126-221 a month.",
+    "basis": "Range of savings reported for household energy feedback: 4.1-6.7% (randomised trial, 1,028 homes, Da Nang, Vietnam: Nguyen, Goto, Tran & Vu, Energy Policy 195, 2024) and 7% (neighbour-comparison study in Delhi: Malaviya & Chandiwala, WRI, 2018). Larger US programmes saw about 2% (Allcott, J. Public Economics, 2011). This is what OTHER studies found, not a measured WattWise result.",
+    "is_estimate": true
+  },
+  "peer_group": {
+    "home_type": "2bhk",
+    "peer_mean_kwh_per_day": 7.38,
+    "you_vs_peers_pct": 33.2,
+    "note": "Peer groups come from London homes split into 4 usage bands; replaced by real app users later."
+  },
+  "recommendation": {
+    "action": "appliance_efficiency_tip",
+    "target_appliance": "Always-on appliances",
+    "saving_kwh_per_day": 0.49,
+    "saving_rs_per_month": 155.82,
+    "saving_kg_co2_per_month": 10.7,
+    "title": "Check what stays on all the time",
+    "message": "Always-on load (fridge, standby, router) is an easy place to save. Switch off standby devices at the plug. Keep ACs at 24-26°C. Check the fridge door seal and keep it a little off the wall. A 5% cut (~0.5 kWh/day) = about Rs 156 and 11 kg CO2 a month (each unit costs you Rs 10.60 at your slab).",
+    "confidence_scores": {
+      "reduce_load_general": 0.407,
+      "shift_evening_to_midday": 0.155,
+      "appliance_efficiency_tip": 0.481,
+      "no_action": 0.049
+    }
+  },
+  "appliance_breakdown": {
+    "items": [
+      {
+        "type": "ac_1_5_ton",
+        "label": "AC (1.5 ton)",
+        "count": 1,
+        "hours_per_day": 4.0,
+        "when": "evening",
+        "kwh": 3.45,
+        "share_pct": 35.0,
+        "shiftable": false,
+        "cuttable": true,
+        "kwh_per_hour": 0.63,
+        "basis": "typical (assumed 3-star)",
+        "star_rating": null
+      },
+      {
+        "type": "ceiling_fan",
+        "label": "Ceiling fan",
+        "count": 3,
+        "hours_per_day": 10.0,
+        "when": "evening",
+        "kwh": 2.87,
+        "share_pct": 29.2,
+        "shiftable": false,
+        "cuttable": true,
+        "kwh_per_hour": 0.21000000000000002,
+        "basis": "typical",
+        "star_rating": null
+      },
+      {
+        "type": "geyser",
+        "label": "Geyser / water heater",
+        "count": 1,
+        "hours_per_day": 0.5,
+        "when": "morning",
+        "kwh": 1.37,
+        "share_pct": 13.9,
+        "shiftable": true,
+        "cuttable": true,
+        "kwh_per_hour": 2.0,
+        "basis": "typical",
+        "star_rating": null
+      },
+      {
+        "type": "fridge",
+        "label": "Refrigerator",
+        "count": 1,
+        "hours_per_day": 24.0,
+        "when": "all_day",
+        "kwh": 1.05,
+        "share_pct": 10.7,
+        "shiftable": false,
+        "cuttable": false,
+        "kwh_per_hour": 0.03208333333333333,
+        "basis": "typical (assumed 3-star)",
+        "star_rating": null
+      },
+      {
+        "type": "washing_machine",
+        "label": "Washing machine",
+        "count": 1,
+        "hours_per_day": 1.0,
+        "when": "evening",
+        "kwh": 0.68,
+        "share_pct": 7.0,
+        "shiftable": true,
+        "cuttable": false,
+        "kwh_per_hour": 0.5,
+        "basis": "typical",
+        "star_rating": null
+      },
+      {
+        "type": "led_lights",
+        "label": "LED lights (all)",
+        "count": 1,
+        "hours_per_day": 5.0,
+        "when": "evening",
+        "kwh": 0.41,
+        "share_pct": 4.2,
+        "shiftable": false,
+        "cuttable": true,
+        "kwh_per_hour": 0.06,
+        "basis": "typical",
+        "star_rating": null
+      }
+    ],
+    "scale_factor": 1.37,
+    "hours_look_off": false,
+    "evening_share": 0.772,
+    "solar_share": 0.036,
+    "always_on_kwh": 1.05,
+    "note": "Estimate from your inputs (typical or BEE star-label energy use x your hours), scaled to your meter total. Not measured."
+  },
+  "inputs_defaulted": [
+    "peer_mean_kwh",
+    "baseload_kw (scaled from usage)"
+  ],
+  "notes": [
+    "Forecast models were trained on 148 London homes (Low Carbon London, 2013); Indian homes may differ.",
+    "Bill = energy + wheeling + fixed charge (MSEDCL FY 2026-27). Electricity duty and FAC are not included.",
+    "Carbon uses one yearly average for the Indian grid (CEA, 0.727 kg CO2/kWh)."
+  ]
+}

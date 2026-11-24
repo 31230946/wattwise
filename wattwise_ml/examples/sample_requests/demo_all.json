@@ -1,0 +1,102 @@
+{
+  "_note": "SAMPLE households for the demo. Made-up but realistic inputs; label them Sample in the app. Not evaluation data.",
+  "bill": {
+    "monthly_units": [
+      262,
+      248,
+      255,
+      281,
+      330,
+      352,
+      318,
+      290,
+      276,
+      284,
+      295,
+      306
+    ],
+    "has_smart_meter": false
+  },
+  "daily": {
+    "daily_kwh": [
+      8.9,
+      9.4,
+      10.1,
+      9.0,
+      8.6,
+      11.2,
+      10.8,
+      9.3,
+      9.7,
+      10.4,
+      9.1,
+      8.8,
+      11.5,
+      11.0,
+      9.6,
+      9.9,
+      10.6,
+      9.2,
+      9.0,
+      11.8,
+      11.1,
+      9.1,
+      8.7,
+      10.2,
+      9.8,
+      11.0,
+      10.5,
+      9.9
+    ],
+    "last_reading_date": "2026-10-12",
+    "home_type": "2bhk",
+    "has_smart_meter": false,
+    "appliances": [
+      {
+        "type": "ac_1_5_ton",
+        "count": 1,
+        "hours_per_day": 4,
+        "when": "evening"
+      },
+      {
+        "type": "ceiling_fan",
+        "count": 3,
+        "hours_per_day": 10,
+        "when": "evening"
+      },
+      {
+        "type": "fridge",
+        "count": 1,
+        "when": "all_day"
+      },
+      {
+        "type": "geyser",
+        "count": 1,
+        "hours_per_day": 0.5,
+        "when": "morning"
+      },
+      {
+        "type": "led_lights",
+        "count": 1,
+        "hours_per_day": 5,
+        "when": "evening"
+      },
+      {
+        "type": "washing_machine",
+        "count": 1,
+        "hours_per_day": 1,
+        "when": "evening"
+      }
+    ]
+  },
+  "homes_like_yours": {
+    "monthly_units": [
+      140,
+      150,
+      210
+    ],
+    "last_bill_month": 4,
+    "has_ac": true,
+    "has_smart_meter": false
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "data_label": "Based on SIMULATED Pune homes (real London homes reshaped to published Pune smart-meter averages). A typical picture for homes like yours, not a forecast from your own data.",
+  "matched": {
+    "homes": 5,
+    "with_ac": true,
+    "how_close_pct": 2.7,
+    "note": "Average gap between your bills and the matched homes' units for the same months."
+  },
+  "your_bills": [
+    {
+      "month": "Feb",
+      "units": 140.0
+    },
+    {
+      "month": "Mar",
+      "units": 150.0
+    },
+    {
+      "month": "Apr",
+      "units": 210.0
+    }
+  ],
+  "typical_day": {
+    "month": "Apr",
+    "hourly_watts": [
+      399,
+      397,
+      377,
+      349,
+      306,
+      262,
+      251,
+      271,
+      278,
+      276,
+      256,
+      239,
+      244,
+      263,
+      281,
+      289,
+      280,
+      264,
+      247,
+      243,
+      254,
+      279,
+      333,
+      381
+    ],
+    "peak_hour": 0,
+    "peak_watts": 399,
+    "night_watts_1_to_5am": 357,
+    "evening_share_6_to_10pm": 0.146
+  },
+  "typical_day_peak_month": {
+    "month": "May",
+    "hourly_watts": [
+      473,
+      470,
+      449,
+      414,
+      360,
+      292,
+      268,
+      282,
+      294,
+      284,
+      263,
+      253,
+      264,
+      289,
+      307,
+      319,
+      315,
+      293,
+      265,
+      258,
+      268,
+      302,
+      376,
+      448
+    ],
+    "peak_hour": 0,
+    "peak_watts": 473,
+    "night_watts_1_to_5am": 423,
+    "evening_share_6_to_10pm": 0.14
+  },
+  "year_outlook": [
+    {
+      "month": "Jan",
+      "units": 134.0,
+      "bill_rs": 1038.68,
+      "slab": "101-300 units",
+      "kg_co2": 97.2,
+      "source": "homes like yours (simulated)"
+    },
+    {
+      "month": "Feb",
+      "units": 140.0,
+      "bill_rs": 1106.0,
+      "slab": "101-300 units",
+      "kg_co2": 101.8,
+      "source": "your bill"
+    },
+    {
+      "month": "Mar",
+      "units": 150.0,
+      "bill_rs": 1212.0,
+      "slab": "101-300 units",
+      "kg_co2": 109.0,
+      "source": "your bill"
+    },
+    {
+      "month": "Apr",
+      "units": 210.0,
+      "bill_rs": 1848.0,
+      "slab": "101-300 units",
+      "kg_co2": 152.7,
+      "source": "your bill"
+    },
+    {
+      "month": "May",
+      "units": 234.0,
+      "bill_rs": 2104.19,
+      "slab": "101-300 units",
+      "kg_co2": 170.2,
+      "source": "homes like yours (simulated)"
+    },
+    {
+      "month": "Jun",
+      "units": 161.0,
+      "bill_rs": 1329.25,
+      "slab": "101-300 units",
+      "kg_co2": 117.1,
+      "source": "homes like yours (simulated)"
+    },
+    {
+      "month": "Jul",
+      "units": 131.0,
+      "bill_rs": 1007.11,
+      "slab": "101-300 units",
+      "kg_co2": 95.0,
+      "source": "homes like yours (simulated)"
+    },
+    {
+      "month": "Aug",
+      "units": 127.0,
+      "bill_rs": 964.41,
+      "slab": "101-300 units",
+      "kg_co2": 92.1,
+      "source": "homes like yours (simulated)"
+    },
+    {
+      "month": "Sep",
+      "units": 129.0,
+      "bill_rs": 985.17,
+      "slab": "101-300 units",
+      "kg_co2": 93.5,
+      "source": "homes like yours (simulated)"
+    },
+    {
+      "month": "Oct",
+      "units": 137.0,
+      "bill_rs": 1076.32,
+      "slab": "101-300 units",
+      "kg_co2": 99.7,
+      "source": "homes like yours (simulated)"
+    },
+    {
+      "month": "Nov",
+      "units": 132.0,
+      "bill_rs": 1023.35,
+      "slab": "101-300 units",
+      "kg_co2": 96.1,
+      "source": "homes like yours (simulated)"
+    },
+    {
+      "month": "Dec",
+      "units": 135.0,
+      "bill_rs": 1049.61,
+      "slab": "101-300 units",
+      "kg_co2": 97.9,
+      "source": "homes like yours (simulated)"
+    }
+  ],
+  "year_summary": {
+    "units": 1820,
+    "bill_rs": 14744,
+    "kg_co2": 1322,
+    "highest_month": "May",
+    "highest_month_units": 234.0,
+    "highest_month_slab": "101-300 units"
+  },
+  "how_good_is_this": "Tested on the simulated homes only (pune_sim/PUNE_SIM.md). Real homes vary more, so treat months you didn't enter as a rough guide.",
+  "inputs_defaulted": []
+}

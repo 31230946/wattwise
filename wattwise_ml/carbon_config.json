@@ -1,0 +1,11 @@
+{
+  "kg_co2_per_kwh": 0.727,
+  "year": "2023-24",
+  "_source": "Central Electricity Authority (CEA), CO2 Baseline Database for the Indian Power Sector, User Guide Version 20.0, Appendix C, Table B: weighted average emission rate of the Indian grid including renewables = 0.727 tCO2/MWh for 2023-24 (0.716 for 2022-23).",
+  "_note": "This is ONE yearly average for the whole Indian grid. It is not hour-by-hour, so moving use to a different time of day does not change the kg CO2 we can honestly show. Update when CEA publishes a newer version.",
+  "expected_saving_from_feedback": {
+    "low_pct": 4,
+    "high_pct": 7,
+    "_basis": "Range of savings reported for household energy feedback: 4.1-6.7% (randomised trial, 1,028 homes, Da Nang, Vietnam: Nguyen, Goto, Tran & Vu, Energy Policy 195, 2024) and 7% (neighbour-comparison study in Delhi: Malaviya & Chandiwala, WRI, 2018). Larger US programmes saw about 2% (Allcott, J. Public Economics, 2011). This is what OTHER studies found, not a measured WattWise result."
+  }
+}

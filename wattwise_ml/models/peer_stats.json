@@ -1,0 +1,30 @@
+{
+  "1bhk": {
+    "peer_mean_kwh": 4.205,
+    "peer_median_kwh": 3.922,
+    "evening_share": 0.218,
+    "baseload_kw": 0.088,
+    "n_households": 38
+  },
+  "2bhk": {
+    "peer_mean_kwh": 7.38,
+    "peer_median_kwh": 7.124,
+    "evening_share": 0.23,
+    "baseload_kw": 0.145,
+    "n_households": 37
+  },
+  "3bhk": {
+    "peer_mean_kwh": 10.661,
+    "peer_median_kwh": 10.409,
+    "evening_share": 0.241,
+    "baseload_kw": 0.19,
+    "n_households": 37
+  },
+  "villa": {
+    "peer_mean_kwh": 18.649,
+    "peer_median_kwh": 16.368,
+    "evening_share": 0.237,
+    "baseload_kw": 0.304,
+    "n_households": 37
+  }
+}

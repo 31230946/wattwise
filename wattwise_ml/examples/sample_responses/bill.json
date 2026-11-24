@@ -1,0 +1,145 @@
+{
+  "screen": "monthly_bill",
+  "last_month": {
+    "units": 306.0,
+    "bill": {
+      "monthly_units": 306.0,
+      "estimated_bill_rs": 2884.26,
+      "current_slab": "301-500 units",
+      "marginal_rate_rs_per_kwh": 13.71,
+      "units_above_lower_slab_line": 6.0,
+      "units_to_next_slab_line": 194.0,
+      "excludes": "electricity duty, fuel adjustment charge",
+      "tariff": "MSEDCL LT I(B) Residential (single phase), FY 2026-27",
+      "breakdown": {
+        "slabs": [
+          {
+            "slab": "1-100",
+            "units": 100.0,
+            "rate_rs": 4.32,
+            "energy_rs": 432.0
+          },
+          {
+            "slab": "101-300",
+            "units": 200,
+            "rate_rs": 9.4,
+            "energy_rs": 1880.0
+          },
+          {
+            "slab": "301-500",
+            "units": 6.0,
+            "rate_rs": 12.51,
+            "energy_rs": 75.06
+          }
+        ],
+        "wheeling_rs": 367.2,
+        "fixed_rs": 130,
+        "total_rs": 2884.26,
+        "excludes": "electricity duty, fuel adjustment charge"
+      },
+      "based_on": "your last bill"
+    },
+    "carbon": {
+      "kwh": 306.0,
+      "kg_co2": 222.5,
+      "period": "your last bill",
+      "factor_kg_per_kwh": 0.727,
+      "source": "CEA CO2 Baseline Database v20, 2023-24"
+    },
+    "expected_savings_if_tips_followed": {
+      "low": {
+        "pct": 4,
+        "units_per_month": 12.2,
+        "kg_co2_per_month": 8.9,
+        "rs_per_month": 148.4
+      },
+      "high": {
+        "pct": 7,
+        "units_per_month": 21.4,
+        "kg_co2_per_month": 15.6,
+        "rs_per_month": 245.71
+      },
+      "message": "Homes that follow energy tips typically use 4-7% less. For you that is about 9-16 kg CO2 and Rs 148-246 a month.",
+      "basis": "Range of savings reported for household energy feedback: 4.1-6.7% (randomised trial, 1,028 homes, Da Nang, Vietnam: Nguyen, Goto, Tran & Vu, Energy Policy 195, 2024) and 7% (neighbour-comparison study in Delhi: Malaviya & Chandiwala, WRI, 2018). Larger US programmes saw about 2% (Allcott, J. Public Economics, 2011). This is what OTHER studies found, not a measured WattWise result.",
+      "is_estimate": true
+    }
+  },
+  "history": [
+    {
+      "units": 262.0,
+      "bill_rs": 2399.2,
+      "kg_co2": 190.5
+    },
+    {
+      "units": 248.0,
+      "bill_rs": 2250.8,
+      "kg_co2": 180.3
+    },
+    {
+      "units": 255.0,
+      "bill_rs": 2325.0,
+      "kg_co2": 185.4
+    },
+    {
+      "units": 281.0,
+      "bill_rs": 2600.6,
+      "kg_co2": 204.3
+    },
+    {
+      "units": 330.0,
+      "bill_rs": 3213.3,
+      "kg_co2": 239.9
+    },
+    {
+      "units": 352.0,
+      "bill_rs": 3514.92,
+      "kg_co2": 255.9
+    },
+    {
+      "units": 318.0,
+      "bill_rs": 3048.78,
+      "kg_co2": 231.2
+    },
+    {
+      "units": 290.0,
+      "bill_rs": 2696.0,
+      "kg_co2": 210.8
+    },
+    {
+      "units": 276.0,
+      "bill_rs": 2547.6,
+      "kg_co2": 200.7
+    },
+    {
+      "units": 284.0,
+      "bill_rs": 2632.4,
+      "kg_co2": 206.5
+    },
+    {
+      "units": 295.0,
+      "bill_rs": 2749.0,
+      "kg_co2": 214.5
+    },
+    {
+      "units": 306.0,
+      "bill_rs": 2884.26,
+      "kg_co2": 222.5
+    }
+  ],
+  "slab_status": {
+    "slab": "301-500",
+    "each_unit_cut_saves_rs": 13.71
+  },
+  "simple_projection": {
+    "same_as_last_month": 306.0,
+    "average_of_months_given": 291.4,
+    "same_month_last_year": 262.0,
+    "is_ml_forecast": false,
+    "note": "Simple arithmetic, not a forecast. Add daily readings for an ML forecast."
+  },
+  "next_step": "Enter daily meter readings (7 or more days) to get a machine-learning forecast and a personal tip.",
+  "notes": [
+    "Bill = energy + wheeling + fixed charge (MSEDCL FY 2026-27). Electricity duty and FAC are not included.",
+    "Carbon uses one yearly average for the Indian grid (CEA, 0.727 kg CO2/kWh)."
+  ]
+}
